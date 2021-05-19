@@ -1,4 +1,11 @@
 <x-guest-layout>
+
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <a href="{{ route('home') }}">{{ __('Log in') }}</a>
+        </h2>
+    </x-slot>
+
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">

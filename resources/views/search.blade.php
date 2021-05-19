@@ -25,28 +25,28 @@
         <x-guest-layout>
             <x-slot name="header">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ __('Real Estate') }}
+                    <a href="{{ route('home') }}">{{ __('Real Estate') }}</a>
                 </h2>
             </x-slot>
-{{--            @if (Route::has('login'))--}}
-{{--                <div class="hidden fixed top-0 right-0 px-6 py-6 sm:block">--}}
-{{--                    @auth--}}
-{{--                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">{{ Auth::user()->name }}'s dashboard</a>--}}
-{{--                    @else--}}
-{{--                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Sign in</a>--}}
+            @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-6 sm:block">
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">{{ Auth::user()->name }}'s dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
 
-{{--                        @if (Route::has('register'))--}}
-{{--                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>--}}
-{{--                        @endif--}}
-{{--                    @endauth--}}
-{{--                </div>--}}
-{{--            @endif--}}
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register to get started</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
 {{--            bg-gray-100--}}
             <div class="relative flex items-top justify-center bg-gradient-to-r from-indigo-50 to-indigo-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
                 <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                     <div class="py-12">
                         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
-                            <h3 class="text-2xl font-bold mb-4 text-center">Find a place for your fiscal wealth and mental security.</h3>
+                            <h3 class="text-2xl font-bold mb-4">Find a place for your fiscal wealth and mental security.</h3>
                             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                                 <div class="relative text-lg bg-transparent text-gray-800">
                                     <div class="flex items-center border-b border-b-2 border-teal-500 py-2">
@@ -56,35 +56,6 @@
                                         <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"/>
                                     </svg>
                                         </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                        <div class="grid grid-cols-1 md:grid-cols-2">
-                            <div class="p-6">
-                                <div class="flex items-center">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="#" class="underline text-gray-900 dark:text-white">Buy a home</a></div>
-                                </div>
-
-                                <div class="ml-12">
-                                    <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Find your dream house by browsing the available listings in your area.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                                <div class="flex items-center">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="#" class="underline text-gray-900 dark:text-white">Sell a home</a></div>
-                                </div>
-
-                                <div class="ml-12">
-                                    <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Choose to traditionally sell your home by putting it on the market. We'll take care of the rest.
                                     </div>
                                 </div>
                             </div>

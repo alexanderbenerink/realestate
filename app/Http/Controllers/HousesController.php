@@ -21,7 +21,7 @@ class HousesController extends Controller
     // Search a listing of the resource
     public function search(Request $request) {
         $search = $request->get('search');
-        $searchhouse = DB::table('houses')
+        $houses = DB::table('houses')
             ->where('address', 'like', '%'.$search.'%')
             ->orWhere('price', 'like', '%'.$search.'%')
             ->orWhere('city', 'like', '%'.$search.'%')
@@ -31,7 +31,7 @@ class HousesController extends Controller
             ->orWhere('surface_area', 'like', '%'.$search.'%')
             ->orderBy('id', 'desc')->paginate(10);
 
-        return view('search', compact('searchhouse'));
+        return view('search', compact('houses'));
     }
 
     public function create () {

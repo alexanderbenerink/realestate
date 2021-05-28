@@ -24,9 +24,10 @@
     <body class="antialiased">
         <x-guest-layout>
             <x-slot name="header">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-{{--                    {{ __('Real Estate') }}--}}
-                </h2>
+                <a href="{{ url()->previous() }}">
+{{--                    <h2 class="text-2xl font-bold mb-4 text-center">🠔 Return to search</h2>--}}
+                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">🠔 Return to search</h2>
+                </a>
             </x-slot>
 {{--            @if (Route::has('login'))--}}
 {{--                <div class="hidden fixed top-0 right-0 px-6 py-6 sm:block">--}}
@@ -44,90 +45,65 @@
 {{--            bg-gray-100--}}
             <div class="welcome relative flex items-top justify-center bg-gradient-to-r from-indigo-50 to-indigo-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
                 <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                    <div class="py-12">
-                        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
-                            <h3 class="text-2xl font-bold mb-4 text-center">House product page details.</h3>
-                        </div>
-                    </div>
-                    <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+
+                    <!-- container -->
+                    <div class="mt-8 bg-indigo-100 dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                         <div class="grid grid-cols-1 md:grid-cols-2">
                             <div class="p-6">
-                                <div class="flex items-center">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{url('/index')}}" class="underline text-gray-900 dark:text-white">Buy a home</a></div>
+                                <div class="flex justify-center">
+{{--                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>--}}
+{{--                                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{url('/index')}}" class="underline text-gray-900 dark:text-white">Buy a home</a></div>--}}
+                                    <img src="{{ url('./'.$houses->image) }}" class="rounded" width="360">
                                 </div>
 
-                                <div class="ml-12">
-                                    <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Find your dream house by browsing the available listings in your area.
-                                    </div>
-                                </div>
+{{--                                <div class="ml-12">--}}
+{{--                                    <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">--}}
+{{--                                        Find your dream house by browsing the available listings in your area.--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
 
-                            <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                                <div class="flex items-center">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{url('/create')}}" class="underline text-gray-900 dark:text-white">Sell a home</a></div>
+                            <div class="p-6 flex flex-col border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                                <div class="">
+{{--                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>--}}
+{{--                                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{url('/create')}}" class="underline text-gray-900 dark:text-white">Sell a home</a></div>--}}
+                                    <h1 class="text-2xl font-bold mb-2">{{ $houses->address }}</h1>
+                                    <p class="text-black font-bold mb-1">{{ $houses->postal_code }}, {{ $houses->city }}</p>
+                                    <p class="text-black font-bold mb-4">€{{ number_format($houses->price, 0, '.', ',') }}.-</p>
                                 </div>
 
-                                <div class="ml-12">
-                                    <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Choose to traditionally sell your home by putting it on the market. We'll take care of the rest.
-                                    </div>
+                                <div class="text-sm">
+                                    <p class="text-grey-dark text-sm">{{ $houses->house_type }}</p>
+                                    <p class="text-grey-dark text-sm">{{ $houses->surface_area }} m²</p>
+                                    <p class="text-grey-dark text-sm">Ingeschreven op {{ $houses->published_at }}</p>
+                                    <br />
+                                </div>
+
+                                <div class="">
+                                    <h3>Beschrijving:</h3>
+                                    <p class="text-grey-dark text-sm">{{ $houses->description }}</p>
+                                    <br />
+                                </div>
+
+                                <div class="flex gap-x-4 mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    <a href="#" title="Buy this listing">
+                                        <x-button class="py-3 px-5">
+                                            {{ __('Koop') }}
+                                        </x-button>
+                                    </a>
+                                    <a href="#" class="place-self-center" title="Add this listing to your wishlist">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                        </svg>
+                                        {{--                                            Red heart when added.--}}
+                                        {{--                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">--}}
+                                        {{--                                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>--}}
+                                        {{--                                            </svg>--}}
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                        <div class="flex-1 py-3 listing">
-                            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                                    <div class="p-3 bg-white border-b border-gray-200">
-                                        <div class="flex justify-end">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                                            </svg>
-                                            {{--                                            Red heart when added.--}}
-                                            {{--                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">--}}
-                                            {{--                                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>--}}
-                                            {{--                                            </svg>--}}
-                                        </div>
-                                        <div class="max-w-md w-full lg:flex">
-                                            <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
-                                                {{--                                                <img src="{{url('/images/house.jpg')}}" height="480" width="480">--}}
-                                                <img src="{{ $houses->image }}" height="192" width="192">
-                                            </div>
-                                            <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-2 flex flex-col justify-between leading-normal">
-                                                <div class="mb-8">
-                                                    {{--                                <p class="text-sm text-grey-dark flex items-center">--}}
-                                                    {{--                                    <svg class="text-grey w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">--}}
-                                                    {{--                                        <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />--}}
-                                                    {{--                                    </svg>--}}
-                                                    {{--                                    Members only--}}
-                                                    {{--                                </p>--}}
-                                                    <p class="text-black font-bold text-xl mb-2">€{{ number_format($houses->price, 0, '.', ',') }}.-</p>
-                                                    <p class="text-grey-darker text-base">{{ $houses->house_type }}</p>
-                                                    <p class="text-grey-darker text-xs">{{ $houses->address }}</p>
-                                                    <p class="text-grey-darker text-xs">{{ $houses->city }}</p>
-                                                </div>
-                                                <div class="flex items-center">
-                                                    {{--                                <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">--}}
-                                                    <div class="text-sm">
-                                                        <p class="text-black text-xs">{{ $houses->surface_area }} m²</p>
-                                                        <p class="text-grey-dark text-xs">{{ $houses->published_at }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{--                                        <div class="flex justify-end">--}}
-                                        {{--                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">--}}
-                                        {{--                                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>--}}
-                                        {{--                                            </svg>--}}
-                                        {{--                                        </div>--}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                         <div class="text-center text-sm text-gray-500 sm:text-left">

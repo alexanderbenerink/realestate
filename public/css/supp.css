@@ -1,0 +1,14 @@
+.listing {
+    transition: all .2s ease;
+    -webkit-filter: grayscale(50%);
+    -moz-filter: grayscale(50%);
+    filter: grayscale(50%);
+}
+
+.listing:hover {
+    transform: scale(1.01);
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+

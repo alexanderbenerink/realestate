@@ -46,21 +46,7 @@
                 <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                     <div class="py-12">
                         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
-                            <h3 class="text-2xl font-bold mb-4 text-center">Find a place for your fiscal wealth and mental security.</h3>
-                            <div class="bg-white shadow-sm sm:rounded-lg">
-                                <div class="relative text-lg bg-transparent text-gray-800">
-                                    <form action="/search" method="GET">
-                                        <div class="flex input-group items-center border-b border-b-2 border-teal-500 py-2">
-                                            <input class="bg-transparent h-full w-full border-none mr-0 px-2 leading-tight focus:outline-none" type="text" placeholder="Enter an address, city or postal code" type="search" name="search" autocomplete="off">
-                                            <button type="submit" class="absolute right-0 mr-4">
-                                                <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve" width="512px" height="512px">
-                                                    <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"/>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                            <h3 class="text-2xl font-bold mb-4 text-center">House product page details.</h3>
                         </div>
                     </div>
                     <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
@@ -92,6 +78,56 @@
                             </div>
                         </div>
                     </div>
+
+                        <div class="flex-1 py-3 listing">
+                            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                                    <div class="p-3 bg-white border-b border-gray-200">
+                                        <div class="flex justify-end">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                            </svg>
+                                            {{--                                            Red heart when added.--}}
+                                            {{--                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">--}}
+                                            {{--                                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>--}}
+                                            {{--                                            </svg>--}}
+                                        </div>
+                                        <div class="max-w-md w-full lg:flex">
+                                            <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+                                                {{--                                                <img src="{{url('/images/house.jpg')}}" height="480" width="480">--}}
+                                                <img src="{{ $houses->image }}" height="192" width="192">
+                                            </div>
+                                            <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-2 flex flex-col justify-between leading-normal">
+                                                <div class="mb-8">
+                                                    {{--                                <p class="text-sm text-grey-dark flex items-center">--}}
+                                                    {{--                                    <svg class="text-grey w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">--}}
+                                                    {{--                                        <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />--}}
+                                                    {{--                                    </svg>--}}
+                                                    {{--                                    Members only--}}
+                                                    {{--                                </p>--}}
+                                                    <p class="text-black font-bold text-xl mb-2">€{{ number_format($houses->price, 0, '.', ',') }}.-</p>
+                                                    <p class="text-grey-darker text-base">{{ $houses->house_type }}</p>
+                                                    <p class="text-grey-darker text-xs">{{ $houses->address }}</p>
+                                                    <p class="text-grey-darker text-xs">{{ $houses->city }}</p>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    {{--                                <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">--}}
+                                                    <div class="text-sm">
+                                                        <p class="text-black text-xs">{{ $houses->surface_area }} m²</p>
+                                                        <p class="text-grey-dark text-xs">{{ $houses->published_at }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{--                                        <div class="flex justify-end">--}}
+                                        {{--                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">--}}
+                                        {{--                                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>--}}
+                                        {{--                                            </svg>--}}
+                                        {{--                                        </div>--}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                         <div class="text-center text-sm text-gray-500 sm:text-left">

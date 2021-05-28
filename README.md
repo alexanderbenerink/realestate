@@ -144,6 +144,11 @@ php artisan db:seed
 // Alternatively, you can run both (will rebuild the database)
 
 php artisan migrate:fresh --seed
+
+// When all is migrated, you can run this command to refresh and reseed the test data
+
+php artisan migrate:refresh --path=/database/migrations/2021_05_18_091339_create_houses_table.php --seed
+
 ```
 Now the database has the necessary tables, and is populated with test data.
 

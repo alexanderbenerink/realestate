@@ -14,15 +14,20 @@ class CreateHousesTable extends Migration
     public function up()
     {
         Schema::create('houses', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('address');
-            $table->decimal('price');
+            $table->string('city');
+            $table->string('price');
             $table->string('image');
             $table->string('house_type');
-            $table->string('description');
+            $table->string('description', 1000);
             $table->string('postal_code');
             $table->integer('surface_area');
+            $table->date('published_at');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

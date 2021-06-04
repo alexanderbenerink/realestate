@@ -1,3 +1,8 @@
+<?php
+use Illuminate\Support\Facades\Auth;
+use App\Models\Houses;
+?>
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -26,7 +31,7 @@
             <x-slot name="header">
                 <a href="{{ url()->previous() }}">
 {{--                    <h2 class="text-2xl font-bold mb-4 text-center">🠔 Return to search</h2>--}}
-                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">🠔 Return to search</h2>
+                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">🠔 Return to {{ ltrim(parse_url(url()->previous(), PHP_URL_PATH), '/') }}</h2>
                 </a>
             </x-slot>
 {{--            @if (Route::has('login'))--}}
@@ -45,9 +50,8 @@
 {{--            bg-gray-100--}}
             <div class="welcome relative flex items-top justify-center bg-gradient-to-r from-indigo-50 to-indigo-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
                 <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-
                     <!-- container -->
-                    <div class="mt-8 bg-indigo-100 dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    <div class="mt-8 bg-blue-50 dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                         <div class="grid grid-cols-1 md:grid-cols-2">
                             <div class="p-6">
                                 <div class="flex justify-center">
@@ -63,7 +67,8 @@
 {{--                                </div>--}}
                             </div>
 
-                            <div class="p-6 flex flex-col border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+{{--                            <div class="p-6 flex flex-col border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">--}}
+                            <div class="p-6 flex flex-col">
                                 <div class="">
 {{--                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>--}}
 {{--                                    <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{url('/create')}}" class="underline text-gray-900 dark:text-white">Sell a home</a></div>--}}
@@ -86,9 +91,14 @@
                                 </div>
 
                                 <div class="flex gap-x-4 mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    @if(Auth::id() == $houses->user_id)
+                                        <x-button class="py-3 px-5 cursor-not-allowed" title="You can't purchase your own listing." disabled>
+                                            {{ __('Dit is jouw listing') }}
+                                        </x-button>
+                                    @else
                                     <a href="#" title="Buy this listing">
-                                        <x-button class="py-3 px-5">
-                                            {{ __('Koop') }}
+                                        <x-button class="py-3 px-5" title="Reageer op deze woning">
+                                            {{ __('Reageer') }}
                                         </x-button>
                                     </a>
                                     <a href="#" class="place-self-center" title="Add this listing to your wishlist">
@@ -100,27 +110,9 @@
                                         {{--                                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>--}}
                                         {{--                                            </svg>--}}
                                     </a>
+                                    @endif
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                        <div class="text-center text-sm text-gray-500 sm:text-left">
-                            <div class="flex items-center">
-
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                                </svg>
-
-                                <a href="https://benerink.online/" class="ml-1" target="_blank">
-                                    Made by Alexander Benerink
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                            Running on Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                         </div>
                     </div>
                 </div>

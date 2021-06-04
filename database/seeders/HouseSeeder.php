@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
@@ -17,8 +18,13 @@ class HouseSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('nl_NL');
+        $user_id= DB::table('users')->pluck('id');
+
         foreach (range(1,25) as $index) {
             DB::table('houses')->insert([
+//                'user_id' => $faker->randomElement($user_id),
+//                'user_id' => User::where('email', 'like', 'test@test.com')->get()->random()->id,
+                'user_id' => User::where('id', 'like', '1')->get()->random()->id,
                 'address' => $faker->streetAddress(),
                 'city' => $faker->city(),
                 'price' => $faker->numberBetween(25000, 1250000),
